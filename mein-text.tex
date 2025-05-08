@@ -1,5 +1,12 @@
 \chapter{Über diese \LaTeX{}-Vorlage}
-Diese Vorlage ersetzt eine ältere Vorlage, die ich auf Basis von Professor Klaus Dohmens Vorlage erstellt hatte. Nachfolgend finden Sie eingige wichtige Informationen zu dieser aktuellen Vorlage vom Mai 2025. Eine gute und umfassende Einführung in \LaTeX{} finden sie im \href{https://de.wikibooks.org/wiki/LaTeX-Kompendium}{LaTeX-Kompendium}. Ein superkurze Einführung ist auch in meinem Buch \textit{Angewandte Bioinformatik} enthalten \citep{Wuenschiers2016kap12}.
+Diese Vorlage ersetzt eine ältere Vorlage, die ich auf Basis von Professor Klaus Dohmens Vorlage erstellt hatte. Nachfolgend finden Sie eingige wichtige Informationen zu dieser aktuellen Vorlage vom Mai 2025. Eine gute und umfassende Einführung in \LaTeX{} finden sie im \href{https://de.wikibooks.org/wiki/LaTeX-Kompendium}{LaTeX-Kompendium}. Ein superkurze Einführung ist auch in meinem Buch \textit{Angewandte Bioinformatik} (Fig. \ref{fig:latex}) enthalten \citep{Wuenschiers2016kap12}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.7\columnwidth]{fig-latex.png}
+    \caption{Von \LaTeX{} zum PDF. Aus \citep{Wuenschiers2016}}.
+    \label{fig:latex}
+\end{figure}
 
 Scheuen Sie sich nicht, mich auf Fehler hinzuweisen und Verbesserungsvorschläge einzubringen: \href{mailto:rw@biowasserstoff.de?subject=HSMW LaTeX-Vorlage}{Email}.
 
@@ -7,16 +14,27 @@ Scheuen Sie sich nicht, mich auf Fehler hinzuweisen und Verbesserungsvorschläge
 
 
 \section{Notwendige Dateien}
-Diese Vorlage besteht aus mehreren Dateien, die alle im selben Verzeichnis liegen müssen. Diese sind ...
+Diese Vorlage besteht aus mehreren Dateien, die alle im selben Verzeichnis liegen müssen. Sie können diese von meinem \href{https://github.com/awkologist/HSMW-Template-BioChem-Group}{GitHub-Repository} nach Click auf den Button \verb+<>Code+ $\rightarrow$ \textit{Download ZIP} als Dateiarchiv herunterladen und dann in \href{https://www.overleaf.com}{Overleaf} unter \textit{New Project} $\rightarrow$ \textit{Upload Project} importieren. Diese sind ...
 
 \begin{tabular}{lp{.6\textwidth}}
-\textit{hsmw-vorlage-rw.tex} & Die Hauptdatei, die Ihren Text enthält \\
-\textit{hsmw-vorlage-rw.cls} & Die Style-Datei, welche die Formatierung bestimmt.\\
-\textit{hsmw-biblatex.cfg} & Konfiguration für Literaturverzeichnis\\
-\textit{hsmw-abk.txt} & Datei mit den Begriffen und Definitionen für das Abkürzungsverzeichnis.\\
-\textit{fig-latex.png} & eine Abbildung\\
+\textit{hsmw-vorlage-rw.tex} & Die Hauptdatei, die die Formatierung bestimmt und Grunddaten enthält \\
+\textit{mein-text.tex} & Datei, die ihren Haupttext enthält \\
+\textit{fig-latex.png} & Eine Abbildung als Beispiel\\
+\textit{magic-juggler.png} & Ein Logo als Beispiel\\
+\textit{unterschrift.jpg} & Eine Unterschrift für die Selbstständigkeitserklärung als Beispiel\\
+\textit{meine-abk.tex} & Datei mit den Begriffen und Definitionen für das Abkürzungsverzeichnis\\
+\textit{meine-literatur.txt} & Datei mit ihrer Literatur im Bibtex-Format\\
+\textit{hsmw-vorlage-rw.cls} & Die Style-Datei, welche die Formatierung bestimmt $\rightarrow$ \textbf{nicht editieren}\\
+\textit{hsmw-biblatex.cfg} & Konfiguration für Literaturverzeichnis  $\rightarrow$ \textbf{nicht editieren}\\
 \end{tabular}
-    
+
+\section{Protokoll, Beleg oder Abschlussarbeit}
+
+
+\section{Formatierungsoptionen}
+In der ersten Zeile der Vorlage \textit{hsmw-vorlage.tex} wird die Dokumentenklasse \textit{hsmw-class}  mit \verb+\documentclass[OPTIONEN]{hsmw-class}+ aufgerufen. Dabei stehen Ihnen zahlreichen OPTIONEN zur Verfügung:
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
     \chapter{Schnellstart: Die Vorlage nutzen}
 	
 	Um die Vorlage zu nutzen, müssen nur wenige grundlegende Entscheidungen getroffen werden, bevor es los gehen kann.
