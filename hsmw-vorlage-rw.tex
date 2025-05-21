@@ -1,33 +1,75 @@
 \documentclass[
-language=ngerman,	% Language: Load default language of the document (default: ngerman)
-thesis=protokoll,		% Layout: Sets the type of thesis and adjusts names, styles and the layout (needs to be used prior to option onesided): protokoll, beleg, bachelor, master, paper, masterpaper, shortpaper, diploma,
-%	noauthorship,		% Layout: Hides the statement of authorship
-nomenclature,
+% DOKUMENTENTYP: protokoll/beleg/bachelor/master/paper/masterpaper/shortpaper/diploma
+thesis=beleg,
 %
-%	printmode,			% Layout: Modifies the predefined colors to cmyk and sets colorlinks=false (needs to be used prior to option colorlinks)
-%	draft,				% Layout: Enable draft mode
-%	onesided,			% Layout: Switch to onesided layout (true, false)
-%	nosecondtitle,		% Layout: Disables the second title page (english)
-	compactlistof,		% Layout: Place list of figures and list of tables together on a single page (default=false)
-%	lotbeforelof,		% Layout: Place list of tables before list of figures
+% SPRACHE: german/english
+language=german,
 %
-%	colorlinks=false,	% Style: Switches colored links in the document (default=true)
-%	graduatedtoc,		% Style: Use a graduated toc instead of a flat one
-%	captionstyle=flat,	% Style: Sets the type of caption handling (default, minus, flat)
-%	smallromans,		% Style: Use lowercase roman page numers for the frontmatter (default: uppercase roman page numbers)
-%	glossaryhref=false,	% Style: Switches glossary links (default=true)
-%	acronymhref=false,	% Style: Switches acronym links (default=true)
-%	acronymdots=false,	% Style: Switches acronym dots (default=true)
+% FAKULTÄT: cb/inw/cb/wi/sw/me
+faculty=cb,	
+%
+% AUTORENSCHAFT: Dokument ohne Autor ...
+% noauthorship
+%
+% DRUCKMODUS: Links ohne Farbe und Graphiken in CMYK
+% printmode,
+%
+% EINSEITIGER DRUCK: Seitenzahlen immer rechts usw.
+onesided,
+%
+% ENGLISCHSPRACHIGE TITELSEITE entfernen
+% nosecondtitle,
+%
+% Abb.- Tab.- und QuellcodeVERZEICHNISSE ohne Seitenumbruch
+% compactlistof,
+%
+% Tab.-VERZEICHNIS vor Abb.-
+% lotbeforelof,	
+%
+% LINKS ohne Farbe
+% colorlinks=false,	
+%
+% INHALTSVERZEICHNIS eingerückt
+graduatedtoc,
+%
+% modernes Design
+fancy,
+%
+%
+%%% NACHFOLGENDE VERWENDEN WIR NICHT ...
+%
+% VORDERTEIL mit kleinen römischen Zahlen
+% smallromans,
+%
+% draft,
+%
+% Abk.-Verz. usw. wird nicht aktualisiert
+% noautobuild,
+%
+% glossaryhref=false,	% Style: Switches glossary links (default=true)
+%
+% Abk.-Verz. ohne Links
+% acronymhref=false,
+%
+% Abk.-Verz. ohne Punkte
+% acronymdots=false,
+%
+% theorembelow,		% Math: Use a linebreak after theorem (instead of a small horizontal skip)
+%
+% theoremdelim=:,		% Math: Specify the separater between theorem label and content (e.g. ".", ":", "-"), default=<none>
+%
+% sansmath,			% Math: Enable sans serif math fonts
+%
+%%% NACHFOLGENDE WEISS ICH NICHT ...
+%
+% nomenclature,
+%
 %	symbolshref=false,	% Style: Switches acronym links (default=true)
+%
 %	symbolsdots=false,	% Style: Switches acronym links (default=true)
-	fancy,				% Style: Adjust multiple style options (use inofficial adaptions to match the unreleased corporate design 2019)
 %
-%	theorembelow,		% Math: Use a linebreak after theorem (instead of a small horizontal skip)
-%	theoremdelim=:,		% Math: Specify the separater between theorem label and content (e.g. ".", ":", "-"), default=<none>
-%	sansmath,			% Math: Enable sans serif math fonts
+% captionstyle=default,	% Style: Sets the type of caption handling (default, minus, flat)
 %
-%	noautobuild,		% Processing: Disables automatic building (makeindex) of glossary, acronyms and index (current auxiliaries are still used)
-	faculty=cb,			% Preset: Sets a default faculty name (inw, cb, wi, sw, me): no need to call \faculty in preamble
 ]{hsmw-vorlage-rw}
 
 \usepackage{alertmessage}
@@ -45,54 +87,34 @@ terseinits=true, % Initialien ohne Punkt und Leerzeichen
 uniquename=init, %
 ]{biblatex} 
 
-
-
-% Lädt Bibliograpie aus Datei literatur.bib
 \addbibresource{meine-literatur.bib}
 
-% Ersetzt u.a. mit et al.
-\DefineBibliographyStrings{ngerman}{andothers={{et\,al\adddot}}} 
 
-% Ignoriert Sonderzeichen im Abstract in .bib-Datei
-\DeclareSourcemap{
-  \maps[datatype=bibtex]{
-    \map{
-       \step[fieldset=abstract, null]
-    }
- }
-}
-
-% Erstellt den Filter "original" für Literaturverzeichnis
-\defbibfilter{original}{
-  type=article or
-  type=inproceedings or
-  type=inbook or
-  type=book
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SPECIAL TO THIS DEMO 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % DIE FOLGENDE ZEILE MÜSSEN SIE AUSKOMMENTIEREN, DAMIT DER HAUPTTITEL "BACHELORARBEIT" LAUTET -> ALSO EINFACH EIN PROZENTZEICHEN AN DEN ANFANG DER NÄCHSTEN ZEILE SETZEN
-%\type{Dokumentation}% Document Type (overrides default type preconfigured by class option "thesis")
+\type{Dokumentation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% NOTWENDIGE FELDER
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title[Template and Information for Writing Protocols, Reports and Theses]{Vorlage und Informationen für das Verfassen von Protokollen, Belegen und Abschlussarbeiten}% Document Title
+% Titel: [englisch]{deutsch}
+\title[Template and Information for Writing Protocols, Reports and Theses]{Vorlage und Informationen für das Verfassen von Protokollen, Belegen und Abschlussarbeiten}
 
 %%% VERWENDEN SIE DEN STERN FÜR EINE AUTORIN
-\author[Prof. Dr.]{Röbbe}{Wünschiers}<unterschrift.jpg>
-\addauthor*{Lisa}{Prudnikow}[BT23, Matrikel 12345]% Additional Document Authors
-\addauthor*{Anna}{Nauruschat}[BT23, Matrikel 23456]% Additional Document Authors
-\addauthor{Nils}{Schön}[BT23, Matrikel 34567]% Additional Document Authors
+\author[]{Röbbe}{Wünschiers}<unterschrift.jpg>
+%\addauthor*{Lisa}{Prudnikow}[BT23, Matrikel 12345]% Additional Document Authors
+%\addauthor*{Anna}{Nauruschat}[BT23, Matrikel 23456]% Additional Document Authors
+%\addauthor{Nils}{Schön}[BT23, Matrikel 34567]% Additional Document Authors
 
 \courseofstudy[Biotechnology]{Biotechnologie}% Course of Study
 
 \examiner{Prof. Dr. Röbbe Wünschiers}% Supervisor (Hint: Use \examiner*{} or \addexaminer*{} to add female examiners)
-\addexaminer*{Sandra Feik}% Additional Supervisors
+\addexaminer*{Sie, liebe Studierende}% Additional Supervisors
 
 \submissiondate{\the\year}[\the\month][\the\day]% Submission Date (use individual components of \today in this case for an up to date document)
 
@@ -102,7 +124,7 @@ uniquename=init, %
 %%% NOTWENDIGE FELDER FÜR PROTOKOLLE UND BELEGE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\module{Angewandte Bioinformatik}% Name of the Module
+\module{Wissenschaftliches Präsentieren}% Name of the Module
 
 \seminargroup{BT09}% Seminar Group
 
@@ -119,7 +141,7 @@ uniquename=init, %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% DIESER EINTRAG IST OPTIONAL UND KANN WEGGELASSEN WERDEN. MEHRERE BETREUER WERDEN DURCH KOMMATA GETRENNT
-\betreuer{Anna Nauruschat}
+ \betreuer{Das WWW, ChatGPT}
 
 %\abstract{Dieses Dokument soll als minimales Beispiel für eine Abschlussarbeit dienen und hat nur einen sehr begrenzten Nährwert.}% Abstract (optional english)
 
@@ -156,90 +178,12 @@ Ich möchte an dieser Stelle Stefan Schildbach für die gute Vorlage danken, die
 %\hookpreauthorship{}% Add content before the Statement of Authorship
 %\hooklastpage{}% Add content after the Statement of Authorship
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Recommended Bibliography Packages and Configuration
-
-%\usepackage[bibstyle=ieee,citestyle=numeric-comp,natbib=true,sorting=none,dashed=false]{biblatex}
-%\addbibresource{literature.bib}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Define Acronyms and Glossary Entries in Preamble
-
-%%% Acronyms
+%%% Abkürzungen
 \input{meine-abk.tex}
 
 \glsaddall
 
-%%% Symbols
-%\newsymb{symb:alpha}{$\alpha$}{Alpha}{First greek letter}
-%\newsymb{symb:set}{\ensuremath{S}}{}{Some set}
-%\newsymb{symb:sigma}{\ensuremath{\sigma}}{Sigma}{First greek letter}
 
-%%% Glossary
-%\newglossaryentry{latex}
-%{
-%	name=latex,
-%	plural=latexii,% You can also explicitly define the plural of your entry (to use with \glspl) if it is an irregular form in your language
-%	description={Is a markup language specially suited for scientific documents}
-%}
-%\newglossaryentry{math}
-%{
-%	name=mathematic,
-%	description={Mathematics is what mathematicians do}
-%}
-
-%\glsaddall
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Needed Packages and Configurations (for this specific document only, you can probably ignore them)
-
-%\usepackage{scrhack} % Hacks some known issues with other packages to be more compatible with KOMA (needed e.g. to process listings in toc)
-\usepackage{listings}
-
-\hooklists% Verzeichnis-Hook verwenden
-% Im Kompaktmodus: Überschrift als \section, nicht ins Inhaltsverzeichnis
-[\setuptoc{lol}{leveldown,notoc}]% lol = list of listings
-% Im Normalmodus: Überschrift als \chapter, ins Inhaltsverzeichnis aufnehmen
-[\setuptoc{lol}{totoc}]% lol = list of listings
-{\lstlistoflistings}% Liste der Listings einfügen
-
-% Changes in source makes it more and more difficult to properly format programming code and similar
-%verbatim -> only basic capabilities
-%lgrind -> external program, outdated
-%listing -> superseeded by listings
-%listings -> incompatible with komas-script (scrhack helps somehow)
-%fancyvrb -> missing code styling
-%minted -> needs external tools/programs and shell-escape (external Python library Pygments) % https://github.com/gpoore/minted % https://github.com/gpoore/minted/blob/master/source/minted.pdf
-%currently, best solutions seems to be minted (despite its uglyness)
-
-\lstdefinestyle{MyLatexStyle}
-{
-	language=[AlLaTeX]TeX,
-	float=htb,
-	captionpos=b,
-	frame=lines,
-	tabsize=3,
-	columns=fullflexible,
-	basicstyle=\footnotesize\ttfamily,
-	commentstyle=\color{gray},
-	keywordstyle=\color{hsmw},
-	stringstyle=\color{purple},
-	aboveskip=\baselineskip,%\medskipamount
-	belowskip=-.5\baselineskip,%\medskipamount
-	%abovecaptionskip=0pt,%\smallskipamount
-	belowcaptionskip=0pt,%\smallskipamount
-	breaklines=true,
-	literate=%
-	{Ä}{{\"A}}{1}
-	{Ö}{{\"O}}{1}
-	{Ü}{{\"U}}{1}	
-	{ä}{{\"a}}{1}
-	{ö}{{\"o}}{1}
-	{ü}{{\"u}}{1}
-	{ß}{{\ss}}{1}
-}
-
-\newcommand{\faq}[2]{\textbf{Frage: }\ignorespaces#1\par\textbf{Antwort: }\ignorespaces#2\par}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
